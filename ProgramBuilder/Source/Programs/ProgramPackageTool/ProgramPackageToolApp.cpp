@@ -138,6 +138,7 @@ auto OnPackageButtonClicked(TSharedPtr<SMultiLineEditableTextBox> ProgramTargetF
 							}
 						}
 					}
+					FString ProjectDir = FPaths::GetPath(FPaths::GetPath(FPaths::GetPath(ProgramTargetFileTextBox->GetText().ToString())));
 					FString DeploymentDir = DeploymentDirTextBox->GetText().ToString();
 					DeploymentDir.RemoveFromEnd("/");
 					FString EngineDir = FPaths::EngineDir();
@@ -145,7 +146,6 @@ auto OnPackageButtonClicked(TSharedPtr<SMultiLineEditableTextBox> ProgramTargetF
 
 					FString ExecutableDir = FPlatformProcess::BaseDir();
 					ExecutableDir.RemoveFromEnd(TEXT("/"));
-					FString ProjectDir = FPaths::GetPath(FPaths::GetPath(ExecutableDir));
 
 					for (auto DeploymentFile : DeploymentFiles)
 					{
